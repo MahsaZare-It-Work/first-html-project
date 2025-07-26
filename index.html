@@ -2,79 +2,91 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>رزرو نوبت درمانی</title>
+  <title>فرم اطلاعات مهسا</title>
   <style>
     body {
-      font-family: Tahoma, sans-serif;
+      font-family: 'Tahoma', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
       direction: rtl;
-      background-color: #f9f9f9;
-      padding: 30px;
     }
-    .form-container {
-      background-color: #fff;
-      padding: 20px;
-      max-width: 400px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, select, button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #28a745;
+
+    header {
+      background-image: url('https://picsum.photos/1200/300'); /* عکس بالا سایت */
+      background-size: cover;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .success {
-      margin-top: 20px;
-      color: green;
+      font-size: 32px;
       font-weight: bold;
-      display: none;
+      text-shadow: 1px 1px 4px #000;
     }
+
+    .container {
+      background-color: white;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="form-container">
-    <h2>فرم رزرو نوبت</h2>
-    <form id="bookingForm">
-      <label>نام و نام خانوادگی:</label>
-      <input type="text" name="fullname" required>
+  <header>فرم اطلاعات مهسا</header>
 
-      <label>شماره تماس:</label>
-      <input type="tel" name="phone" required>
+  <div class="container">
+    <h2>لطفاً اطلاعات خود را وارد کنید</h2>
+    <form>
+      <label>نام:</label>
+      <input type="text" name="firstName" required>
 
-      <label>تاریخ مراجعه:</label>
-      <input type="date" name="date" required>
+      <label>نام خانوادگی:</label>
+      <input type="text" name="lastName" required>
 
-      <label>پزشک مورد نظر:</label>
-      <select name="doctor" required>
-        <option value="">انتخاب کنید</option>
-        <option value="دکتر رضایی">دکتر رضایی</option>
-        <option value="دکتر افشار">دکتر افشار</option>
-      </select>
+      <label>ایمیل:</label>
+      <input type="email" name="email" required>
 
-      <button type="submit">رزرو نوبت</button>
+      <label>شغل:</label>
+      <input type="text" name="job">
+
+      <input type="submit" value="ارسال اطلاعات">
     </form>
-    <div class="success" id="successMessage">نوبت با موفقیت ثبت شد!</div>
   </div>
-
-  <script>
-    const form = document.getElementById("bookingForm");
-    const successMsg = document.getElementById("successMessage");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault(); // جلوگیری از ارسال فرم
-      successMsg.style.display = "block";
-      form.reset(); // پاک کردن فرم
-    });
-  </script>
 
 </body>
 </html>
