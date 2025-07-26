@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>رزرو نوبت درمانی</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .success {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>فرم رزرو نوبت</h2>
+    <form id="bookingForm">
+      <label>نام و نام خانوادگی:</label>
+      <input type="text" name="fullname" required>
+
+      <label>شماره تماس:</label>
+      <input type="tel" name="phone" required>
+
+      <label>تاریخ مراجعه:</label>
+      <input type="date" name="date" required>
+
+      <label>پزشک مورد نظر:</label>
+      <select name="doctor" required>
+        <option value="">انتخاب کنید</option>
+        <option value="دکتر رضایی">دکتر رضایی</option>
+        <option value="دکتر افشار">دکتر افشار</option>
+      </select>
+
+      <button type="submit">رزرو نوبت</button>
+    </form>
+    <div class="success" id="successMessage">نوبت با موفقیت ثبت شد!</div>
+  </div>
+
+  <script>
+    const form = document.getElementById("bookingForm");
+    const successMsg = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // جلوگیری از ارسال فرم
+      successMsg.style.display = "block";
+      form.reset(); // پاک کردن فرم
+    });
+  </script>
+
+</body>
+</html>
